@@ -127,4 +127,21 @@ const Dashboard = () => {
           <Sun className="h-6 w-6 mb-2 text-yellow-400" />
           <h3 className="font-medium mb-1">Morning Routine</h3>
           <p className="text-sm text-gray-400">2 tasks remaining</p>
-        </motion.div
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-white/5 p-6 rounded-2xl backdrop-blur-lg border border-white/10"
+        >
+          <Moon className="h-6 w-6 mb-2 text-blue-400" />
+          <h3 className="font-medium mb-1">Evening Routine</h3>
+          <p className="text-sm text-gray-400">3 tasks remaining</p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
