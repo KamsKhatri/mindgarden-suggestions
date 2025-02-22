@@ -274,7 +274,7 @@ const Journal = () => {
                 onSelect={(date) => date && setSelectedDate(date)}
                 className="rounded-lg border-white/10"
                 modifiers={{
-                  booked: entries.map(entry => entry.date)
+                  booked: entries.map(entry => format(entry.date, "yyyy-MM-dd"))
                 }}
                 modifiersStyles={{
                   booked: {
