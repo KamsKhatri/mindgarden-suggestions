@@ -22,59 +22,67 @@ const queryClient = new QueryClient();
 const App = () => (
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          
-          {/* Protected Routes */}
-          <Route
-            path="/dashboard"
-            element={
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        
+        {/* Protected Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <TooltipProvider>
               <MainLayout>
                 <Dashboard />
               </MainLayout>
-            }
-          />
-          <Route
-            path="/journal"
-            element={
+            </TooltipProvider>
+          }
+        />
+        <Route
+          path="/journal"
+          element={
+            <TooltipProvider>
               <MainLayout>
                 <Journal />
               </MainLayout>
-            }
-          />
-          <Route
-            path="/suggestions"
-            element={
+            </TooltipProvider>
+          }
+        />
+        <Route
+          path="/suggestions"
+          element={
+            <TooltipProvider>
               <MainLayout>
                 <Suggestions />
               </MainLayout>
-            }
-          />
-          <Route
-            path="/resources"
-            element={
+            </TooltipProvider>
+          }
+        />
+        <Route
+          path="/resources"
+          element={
+            <TooltipProvider>
               <MainLayout>
                 <Resources />
               </MainLayout>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
+            </TooltipProvider>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <TooltipProvider>
               <MainLayout>
                 <Profile />
               </MainLayout>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </TooltipProvider>
+            </TooltipProvider>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Toaster />
+      <Sonner />
     </QueryClientProvider>
   </BrowserRouter>
 );

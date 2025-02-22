@@ -1,17 +1,10 @@
 
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const Index = () => {
   const navigate = useNavigate();
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowContent(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-theme-dark to-theme-darker text-white">
@@ -28,28 +21,26 @@ const Index = () => {
           <p className="text-lg md:text-xl text-gray-300 max-w-lg mx-auto">
             Your personal AI companion for mental wellness and balanced living
           </p>
-          {showContent && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="space-x-4 pt-8"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="space-x-4 pt-8"
+          >
+            <Button
+              onClick={() => navigate("/signup")}
+              className="bg-primary hover:bg-primary-dark text-secondary-dark px-8 py-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/20"
             >
-              <Button
-                onClick={() => navigate("/signup")}
-                className="bg-primary hover:bg-primary-dark text-secondary-dark px-8 py-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/20"
-              >
-                Get Started
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => navigate("/login")}
-                className="text-primary hover:text-primary-light hover:bg-white/5 px-8 py-6 rounded-full transition-all duration-300"
-              >
-                Sign In
-              </Button>
-            </motion.div>
-          )}
+              Get Started
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => navigate("/login")}
+              className="text-primary hover:text-primary-light hover:bg-white/5 px-8 py-6 rounded-full transition-all duration-300"
+            >
+              Sign In
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </div>
